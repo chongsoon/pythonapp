@@ -3,7 +3,9 @@ job "pythonapp" {
   datacenters = ["[[.datacenter]]"]
   region      = "[[.region]]"
   type        = "batch"
-
+  
+  
+  
   update {
     stagger      = "30s"
     max_parallel = 1
@@ -21,7 +23,7 @@ job "pythonapp" {
 
       config {
         #network_mode = "host"
-        image = "pythonapp:latest"
+        image = "pythonapp"
       }
       
       service {
