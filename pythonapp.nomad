@@ -23,7 +23,7 @@ job "pythonapp" {
 
       config {
         #network_mode = "host"
-        image = "docker-registry.service.consul:5000/pythonapp:latest"
+        image = "127.0.0.1:5000/pythonapp:latest"
       }
       
       service {
