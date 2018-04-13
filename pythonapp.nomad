@@ -23,7 +23,7 @@ job "pythonapp" {
 
       config {
         #network_mode = "host"
-        image = "10.0.0.86:5000/pythonapp:latest"
+        image = "http://10.0.0.86:5000/pythonapp:latest"
       }
       
       service {
