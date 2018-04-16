@@ -5,7 +5,7 @@ job "pythonapp" {
   type        = "batch"
   
   periodic{
-    cron		= "30 * * * * *"
+    cron		= "* * * * *"
     prohibit_overlap	= true
   }
   
