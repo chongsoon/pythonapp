@@ -4,6 +4,10 @@ job "pythonapp" {
   region      = "[[.region]]"
   type        = "batch"
   
+  periodic{
+    cron		= "30 * * * * *"
+    prohibit_overlap	= true
+  }
   
   
   update {
