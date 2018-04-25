@@ -2,6 +2,12 @@ import requests
 import json
 import random
 import string
+import hvac
+
+client = hvac.Client(url='https://10.0.0.86:8200')
+
+print(client.is_initialized())
+
 
 url = "https://3auvqg06yk.execute-api.ap-southeast-1.amazonaws.com/test/student"
 
