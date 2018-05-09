@@ -3,8 +3,23 @@ import json
 import random
 import string
 import hvac
+import os
 
-client = hvac.Client(url='https://10.0.0.86:8200')
+client = hvac.Client(url='https://127.0.0.01:8200', token=os.environ['VAULTTOKEN'], verify=False)
+
+secretResponse  = client.create_role_secret_id(role_name='testapi')
+
+secretid = secretResponse['data']['secret_id']
+
+roleid = os.environ['ROLEID']
+
+authResponse = client.auth_approle(role_id=roleid,secret_id=secretid)
+
+accToken = authResponse['auth']['client_token']
+
+secretDB = client.read(path='secret/testapi')
+
+apiAccessKey = secretDB['data']['key']
 
 print(client.is_initialized())
 
@@ -19,6 +34,8 @@ data = {'name': 'student-'+randomString,
 
 dataJSON = json.dumps(data).encode('utf8')
 
-r = requests.post(url=url, data = dataJSON)
+httpheaders = {'x-api-key':apiAccessKey}
+
+r = requests.post(url=url, data = dataJSON, headers = httpheaders)
 
 print(r.text)
