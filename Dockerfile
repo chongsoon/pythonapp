@@ -8,7 +8,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-COPy ./cert/* /usr/src/app/cert/
+#COPy ./cert/* /usr/src/app/cert/
 
 #RUN update-ca-certificates
 
