@@ -29,7 +29,7 @@ url = "https://3auvqg06yk.execute-api.ap-southeast-1.amazonaws.com/test/student"
 randomString = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(8))
 
 
-data = {'name': 'student-'+randomString,
+data = {'name': 'student-demo-'+randomString,
         'description':'description-'+randomString}
 
 dataJSON = json.dumps(data).encode('utf8')
